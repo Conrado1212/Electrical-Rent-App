@@ -45,7 +45,9 @@ public class UserDAOImpl implements IUserDAO {
     public User getUserByLogin(String username) {
         Session  session = this.sessionFactory.openSession();
         User user =
-                (User) session.createQuery("FROM pl.edu.wszib.model.User WHERE username = " + username ).uniqueResult();
+                (User) session.createQuery("FROM pl.edu.wszib.model.User WHERE username = :username" )
+                        .setParameter("username", username)
+                        .uniqueResult();
         session.close();
         System.out.println(user);
         return user;
