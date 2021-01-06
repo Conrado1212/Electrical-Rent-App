@@ -42,17 +42,19 @@
                     <div style="clear:both"></div>
                 </div>
             </div>
-            <form method="post" id="login" class="input-group">
-                <input type="text" class="input-field" placeholder="username" name="username" th:field="*{addUserKey.username}"required>
-                <input type="password" class="input-field" placeholder="password" name="password" th:field="*{addUserKey.password}"required>
-                <input type="email" class="input-field" placeholder="name" name="name" th:field="*{addUserKey.name}"required>
-                <input type="text" class="input-field" placeholder="surname" name="phsurnameone" th:field="*{addUserKey.surname}"required>
-                <input type="text" class="input-field" placeholder="email"name="email" th:field="*{addUserKey.email}"required>
-                <input type="text" class="input-field" placeholder="latitude" name="latitude" th:field="*{addUserKey.latitude}"required>
-                <input type="text" class="input-field" placeholder="longitude"name="longitude" th:field="*{addUserKey.longitude}"required>
-                <input type="radio" id="label"  name="role" value="ROLE_USER" th:checked th:field="*{addUserKey.role}"required>
+            <form action="/register" method="post" id="login" class="input-group">
+                <input type="text" class="input-field" placeholder="username" name="username" th:field="*{userModel.username}"required>
+                <div th:text="${incorrectRepeat}"></div>
+                <input type="password" class="input-field" placeholder="password" name="password" th:field="*{userModel.password}"required>
+                <input type="password" class="input-field" placeholder="repeatPass" name="repeatPass" th:field="*{userModel.repeatPass}"required>
+                <input type="text" class="input-field" placeholder="name" name="name" th:field="*{userModel.name}"required>
+                <input type="text" class="input-field" placeholder="surname" name="surname" th:field="*{userModel.surname}"required>
+                <input type="email" class="input-field" placeholder="email"name="email" th:field="*{userModel.email}"required>
+                <input type="text" class="input-field" placeholder="latitude" name="latitude" th:field="*{userModel.latitude}"required>
+                <input type="text" class="input-field" placeholder="longitude"name="longitude" th:field="*{userModel.longitude}"required>
+                <input type="radio" id="label"  name="role" value="ROLE_USER" th:checked th:field="*{userModel.role}"required>
                 <label for="label">User</label><br>
-                <input type="text" class="input-field" placeholder="locationName" name="locationName" th:field="*{addUserKey.locationName}"required>
+                <input type="text" class="input-field" placeholder="locationName" name="locationName" th:field="*{userModel.locationName}"required>
                 <input type="checkbox" class="chech-box"><span class="span1">I agree to the terms & conditions</span>
                 <button type="submit" class="submit-btn">Register</button>
 

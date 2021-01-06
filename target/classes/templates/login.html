@@ -42,9 +42,10 @@
                     <div style="clear:both"></div>
                 </div>
             </div>
-            <form action="/login" method="post" id="login" class="input-group">
-                <input type="text" class="input-field" placeholder="Enter username" name="username" th:field="*{loginKey.username}"  required>
-                <input type="password" class="input-field" placeholder="Enter password"  name="password" th:field="*{loginKey.password}"required>
+            <form action="/authenticate" method="post" id="login" class="input-group">
+                <div th:text="${errorMessage}" id="error-message"></div>
+                <input type="text" class="input-field" placeholder="Enter username" name="username" th:field="*{userModel.username}"  required>
+                <input type="password" class="input-field" placeholder="Enter password"  name="password" th:field="*{userModel.password}"required>
                 <input type="checkbox" class="chech-box"><span class="span1">Remember password</span>
                 <button type="submit" class="submit-btn">Log in</button>
             </form>
