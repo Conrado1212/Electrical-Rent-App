@@ -59,9 +59,10 @@ public class LoginController {
     public  String authenticateUser(@ModelAttribute("userModel")User user,Model model){
         boolean authResult = this.authenticationService.authenticationUser(user);
         if(authResult){
+            this.sessionObject.setUser(user);
             return "rentAppPage";
         }else{
-            model.addAttribute("errorMessage","zle dane!!!");
+            model.addAttribute("errorMessage","error data!!!");
             model.addAttribute("userModel",new User());
             return "login";
         }

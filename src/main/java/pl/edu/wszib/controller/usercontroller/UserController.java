@@ -34,6 +34,9 @@ public class UserController {
 
     @RequestMapping(value = "/addUser",method = RequestMethod.POST)
     public String addUserForm(@ModelAttribute("addUserKey") User user){
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         userDAO.addUser(user);
         return  "addUser";
     }
@@ -41,6 +44,9 @@ public class UserController {
     @RequestMapping(value ="/allUser",method = RequestMethod.GET)
     public String AllUsers(Model model){
         model.addAttribute("allUser",userDAO.getAllUser());
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         return "allUser";
     }
 /*
@@ -59,6 +65,9 @@ public class UserController {
 
     @RequestMapping("/getUser")
     public String getUser(Model model, User user, BindingResult bindingResult){
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         if(bindingResult.hasErrors()) {
             return "getUser"; // powrót do formularza
         }
@@ -70,12 +79,18 @@ public class UserController {
 
     @GetMapping("/getUser")
     public String getUserForm(User user) {
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         return "getUser";
     }
 
 
     @RequestMapping("/user")
     public String user(Model model, User user, BindingResult bindingResult){
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         if(bindingResult.hasErrors()) {
             return "user"; // powrót do formularza
        }
@@ -98,6 +113,9 @@ public class UserController {
 
     @RequestMapping(value = "/removeUser",method = RequestMethod.POST)
     public String removeUserForm(@ModelAttribute("removeUserIdKey") User user){
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         userDAO.removeUserId(user.getIdUser());
         return "removeUser";
     }
@@ -110,6 +128,9 @@ public class UserController {
 
     @RequestMapping(value = "/updateUser",method = RequestMethod.POST)
     public String updateVehicleForm(@ModelAttribute("updateUserKey") User user){
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         userDAO.getUpdate(user.getIdUser(),user);
         return "updateUser";
     }

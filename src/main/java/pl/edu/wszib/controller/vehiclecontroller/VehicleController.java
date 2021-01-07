@@ -53,6 +53,9 @@ public class VehicleController {
 
     @RequestMapping(value = "/addVehicle",method = RequestMethod.POST)
     public String addVehicleForm(@ModelAttribute("addVehicleKey") Vehicle vehicle){
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         vehicleDAO.addVehicle(vehicle);
         return  "addVehicle";
     }
@@ -72,6 +75,9 @@ public class VehicleController {
 
     @RequestMapping("/getVehicle")
     public String vehicle(Model model, Vehicle vehicle, BindingResult bindingResult){
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         if(bindingResult.hasErrors()) {
             return "getVehicle"; // powrót do formularza
         }
@@ -83,6 +89,9 @@ public class VehicleController {
 
     @GetMapping("/getVehicle")
     public String vehicleForm(Vehicle vehicle) {
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         return "getVehicle";
     }
 
@@ -101,6 +110,9 @@ public class VehicleController {
 
     @RequestMapping(value = "/removeVehicle",method = RequestMethod.POST)
     public String removeVehicleForm(@ModelAttribute("removeVehicleIdKey") Vehicle vehicle){
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         vehicleDAO.removeVehicleId(vehicle.getIdVehicle());
         return "removeVehicle";
     }
@@ -112,6 +124,9 @@ public class VehicleController {
 
     @RequestMapping(value = "/updateVehicle",method = RequestMethod.POST)
     public String updateVehicleForm(@ModelAttribute("updateVehicleKey") Vehicle vehicle){
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         vehicleDAO.getUpdate(vehicle.getIdVehicle(),vehicle);
         return "updateVehicle";
     }

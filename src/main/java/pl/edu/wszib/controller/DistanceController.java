@@ -6,11 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.edu.wszib.SessionObject;
 import pl.edu.wszib.model.Distance;
 import pl.edu.wszib.service.impl.DistanceServiceImpl;
 
+import javax.annotation.Resource;
+
 @Controller
 public class DistanceController {
+    @Resource(name = "sessionObject")
+    SessionObject sessionObject;
 
     @Autowired
     private DistanceServiceImpl distanceService;
@@ -18,6 +23,9 @@ public class DistanceController {
 
     @RequestMapping("/distance")
     public String calculate(Model model, Distance distance, BindingResult bindingResult){
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         if(bindingResult.hasErrors()) {
             return "distance"; // powrót do formularza
         }
@@ -29,6 +37,9 @@ public class DistanceController {
 
     @GetMapping("/distance")
     public String distanceForm(Distance distance) {
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
         return "distance";
     }
 }
