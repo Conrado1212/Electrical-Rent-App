@@ -67,6 +67,36 @@ public class LoginController {
         }
     }
 
+    @RequestMapping(value = "/rentAppPage", method = RequestMethod.GET)
+    public String page(Model model) {
+        if(this.sessionObject.getUser() == null) {
+            return "redirect:/login";
+        }
+
+        model.addAttribute("username", this.sessionObject.getUser().getUsername());
+        return "rentAppPage";
+    }
+
+   /* @RequestMapping(value = "/rentAppPage",method = RequestMethod.GET)
+    public ModelAndView rentAppPage(){
+        return new ModelAndView("rentAppPage","rentKey",new Vehicle());
+    }
+
+    @RequestMapping(value = "/rentAppPage",method = RequestMethod.POST)
+    public String rentForm(@ModelAttribute("rentKey") Vehicle vehicle){
+        System.out.println(vehicle);
+        return "rentAppPage";
+    }
+
+    @RequestMapping(value = "/index",method = RequestMethod.GET)
+    public String index(){
+        return "rentAppPage";
+    }
+
+    */
+
+
+
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public String logout(){
         this.sessionObject.setUser(null);

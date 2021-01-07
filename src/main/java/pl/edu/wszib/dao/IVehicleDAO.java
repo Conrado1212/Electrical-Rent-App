@@ -11,6 +11,8 @@ public interface IVehicleDAO {
 
     Vehicle getVehicle(int idVehicle);
 
+    List<Vehicle> getAllVehicle();
+
     List<Vehicle> getID(int idVehicle);
 
     Vehicle getUpdate(int idVehicle, Vehicle vehicle);

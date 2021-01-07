@@ -62,6 +62,17 @@ public class VehicleDAOImpl implements IVehicleDAO {
         return AllScooter;
     }
 
+    @Override
+    public List<Vehicle> getAllVehicle() {
+        //Session session = factory.openSession();
+
+        Session session = this.sessionFactory.openSession();
+        List<Vehicle> AllVehicle =
+                session.createQuery("FROM pl.edu.wszib.model.Vehicle ").list();
+        session.close();
+        return AllVehicle;
+    }
+
 
     @Override
     public List<Vehicle> getID(int idVehicle) {

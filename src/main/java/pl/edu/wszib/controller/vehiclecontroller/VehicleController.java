@@ -27,7 +27,7 @@ public class VehicleController {
     @Autowired
     VehicleDAOImpl vehicleDAO;
 
-    @RequestMapping(value = "/rentAppPage",method = RequestMethod.GET)
+  /*  @RequestMapping(value = "/rentAppPage",method = RequestMethod.GET)
     public ModelAndView rentAppPage(){
         return new ModelAndView("rentAppPage","rentKey",new Vehicle());
     }
@@ -42,6 +42,8 @@ public class VehicleController {
     public String index(){
         return "rentAppPage";
     }
+
+   */
 
     @RequestMapping(value = "/addVehicle",method = RequestMethod.GET)
     public ModelAndView addVehicle(){
