@@ -4,6 +4,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import pl.edu.wszib.dao.IUserDAO;
 import pl.edu.wszib.model.User;
+import pl.edu.wszib.model.Vehicle;
 import pl.edu.wszib.service.IUserService;
 
 import java.util.List;
@@ -30,6 +31,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User getUserByLogin(String username){
         return this.userDAO.getUserByLogin(username);
+    }
+
+    @Override
+    public User getUserById(int idUser){
+        return this.userDAO.getUserById(idUser);
     }
 
     @Override

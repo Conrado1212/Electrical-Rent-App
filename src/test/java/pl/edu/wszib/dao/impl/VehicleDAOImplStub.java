@@ -33,7 +33,36 @@ public class VehicleDAOImplStub implements IVehicleDAO {
 
     @Override
     public List<Vehicle> getAllVehicle() {
-        return null;
+        Vehicle vehicle = new Vehicle();
+        vehicle.setIdVehicle(1);
+        vehicle.setIdGroupVehicle(1);
+        vehicle.setBrand("Xiaomi");
+        vehicle.setModel("Mijia M365");
+        vehicle.setMaxRange(42);
+        vehicle.setWeight(12);
+        vehicle.setPricePerSale(1200);
+        vehicle.setMaxSpeed(30);
+        vehicle.setLatitude(49.65102728278116);
+        vehicle.setLongitude(19.839176173939617);
+        vehicle.setLocationName("adasds");
+
+        Vehicle vehicle1 = new Vehicle();
+        vehicle1.setIdVehicle(1);
+        vehicle1.setIdGroupVehicle(1);
+        vehicle1.setBrand("Xiaomi");
+        vehicle1.setModel("Mijia M365");
+        vehicle1.setMaxRange(42);
+        vehicle1.setWeight(12);
+        vehicle1.setPricePerSale(1200);
+        vehicle1.setMaxSpeed(30);
+        vehicle1.setLatitude(49.65102728278116);
+        vehicle1.setLongitude(19.839176173939617);
+        vehicle1.setLocationName("adasds");
+
+
+
+
+        return getAllVehicle();
     }
 
     @Override

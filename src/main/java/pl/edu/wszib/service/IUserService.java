@@ -9,5 +9,7 @@ public interface IUserService {
 
     User getUserByLogin(String username);
 
+    User getUserById(int idUser);
+
     List<User> getAllUser();
 }
