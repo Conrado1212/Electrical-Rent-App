@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().disable();
 
         http.authorizeRequests()
-                //.antMatchers("/showInfo").permitAll()
+
                 .antMatchers("/").authenticated()
                 .antMatchers("/rentAppPage/*").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/addVehicle").hasAuthority("ROLE_ADMIN")
@@ -65,5 +65,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/", true);
         ;
+
+        http.sessionManagement()
+                //.expiredUrl("/sessionExpired.html")
+                .invalidSessionUrl("/login.html");
     }
 }
