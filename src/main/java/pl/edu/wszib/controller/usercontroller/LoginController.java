@@ -76,6 +76,7 @@ public class LoginController {
         }
 
         model.addAttribute("username", this.sessionObject.getUser().getUsername());
+        System.out.println(this.sessionObject.getUser().getUsername());
         return "rentAppPage";
     }
 

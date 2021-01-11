@@ -3,6 +3,8 @@ package pl.edu.wszib.configuration;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.annotation.SessionScope;
+import pl.edu.wszib.SessionObject;
 import pl.edu.wszib.controller.BuyController;
 import pl.edu.wszib.controller.DistanceController;
 import pl.edu.wszib.controller.RentController;
@@ -23,6 +25,11 @@ import pl.edu.wszib.service.impl.VehicleServiceImpl;
 
 @Configuration
 public class AppConfigurationTest {
+     @Bean
+    @SessionScope
+    public SessionObject sessionObject(){
+        return new SessionObject();
+    }
     @Bean
     public SessionFactory hibernateSessionFactory(){
         return new org.hibernate.cfg.Configuration().configure().buildSessionFactory();
