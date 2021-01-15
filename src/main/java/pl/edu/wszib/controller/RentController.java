@@ -43,6 +43,15 @@ public class RentController {
         return "thanks";
     }
 
+    @GetMapping("/thanks2")
+    public String thanksForm() {
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
+        return "thanks2";
+    }
+
+
     @GetMapping("/rent2")
     public String rent2Form(Rent rent) {
         if(this.sessionObject.getUser() == null){

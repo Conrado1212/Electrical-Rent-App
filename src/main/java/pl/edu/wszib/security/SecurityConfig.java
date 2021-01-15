@@ -62,6 +62,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/buy").permitAll()
                 .antMatchers("/buy2").permitAll()
                 .antMatchers("/thanks").permitAll()
+                .antMatchers("/thanks2").permitAll()
+                .antMatchers("/result2").permitAll()
                 .antMatchers("/rentAppPage").hasRole("USER")
                 .and()
                 .formLogin()
