@@ -33,6 +33,23 @@ public class RentController {
         return "result2";
     }
 
+
+    @RequestMapping("/result2")
+    public String result2Form(){
+        return "rent2";
+    }
+    @RequestMapping("/rent2")
+    public String rent2Form(){
+        return "thanks";
+    }
+
+    @GetMapping("/rent2")
+    public String rent2Form(Rent rent) {
+        if(this.sessionObject.getUser() == null){
+            return "redirect:login";
+        }
+        return "rent2";
+    }
     @GetMapping("/rent")
     public String rentForm(Rent rent) {
         if(this.sessionObject.getUser() == null){

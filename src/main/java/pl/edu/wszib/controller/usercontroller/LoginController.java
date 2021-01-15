@@ -61,7 +61,7 @@ public class LoginController {
         if(authResult){
             System.out.println("logged  !!");
             this.sessionObject.setUser(user);
-
+            System.out.println(user);
             return "rentAppPage";
         }else{
             model.addAttribute("errorMessage","error data!!!");
