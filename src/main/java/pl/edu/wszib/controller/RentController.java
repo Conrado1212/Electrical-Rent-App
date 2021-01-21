@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import pl.edu.wszib.SessionObject;
 import pl.edu.wszib.model.Rent;
 import pl.edu.wszib.service.impl.RentServiceImpl;
@@ -20,7 +21,7 @@ public class RentController {
     @Autowired
     private RentServiceImpl rentService;
 
-    @RequestMapping("/rent")
+    @RequestMapping(value = "/rent",method = RequestMethod.POST)
     public String rent(Model model, Rent rent, BindingResult bindingResult){
         if(this.sessionObject.getUser() == null){
             return "redirect:login";
@@ -34,36 +35,30 @@ public class RentController {
     }
 
 
-    @RequestMapping("/result2")
+    @RequestMapping(value = "/result2",method = RequestMethod.POST)
     public String result2Form(){
         return "rent2";
     }
-    @RequestMapping("/rent2")
+    @RequestMapping(value = "/rent2",method = RequestMethod.POST)
     public String rent2Form(){
-        return "thanks";
+        return "thanks2";
     }
 
-    @GetMapping("/thanks2")
+    @GetMapping(value = "/thanks2")
     public String thanksForm() {
-        if(this.sessionObject.getUser() == null){
-            return "redirect:login";
-        }
+
         return "thanks2";
     }
 
 
-    @GetMapping("/rent2")
+    @GetMapping(value = "/rent2")
     public String rent2Form(Rent rent) {
-        if(this.sessionObject.getUser() == null){
-            return "redirect:login";
-        }
+
         return "rent2";
     }
-    @GetMapping("/rent")
+    @GetMapping(value = "/rent")
     public String rentForm(Rent rent) {
-        if(this.sessionObject.getUser() == null){
-            return "redirect:login";
-        }
+
         return "rent";
     }
 }

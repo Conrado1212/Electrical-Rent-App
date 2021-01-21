@@ -74,7 +74,7 @@ public class BuyController {
 
 
     @RequestMapping(value = "/buy2",method = RequestMethod.POST)
-    public String addVehicleForm(@ModelAttribute("getBuyKey") Buy buy){
+    public String addBuyVehicleForm(@ModelAttribute("getBuyKey") Buy buy){
         if(this.sessionObject.getUser() == null){
             return "redirect:login";
         }

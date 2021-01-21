@@ -93,7 +93,7 @@
                 <div id="btn"></div>
                 <button type="button" class="toggle-btn" >Rent vehicle</button>
             </div>
-            <form action="/rent" method="post" th:object="${rent}" id="login" class="input-group">
+            <form  method="post" th:object="${rent}" id="login" class="input-group">
                 <input type="text" class="input-field" placeholder="idVehicle" name="idVehicle" th:field="*{idVehicle}" th:errorClass="error" required>
                 <span th:if="${#fields.hasErrors('idVehicle')}" th:errors="*{idVehicle}">Błędne dane</span>
                 <input type="text" class="input-field" placeholder="idUser" name="idUser" th:field="*{idUser}" th:errorClass="error" required>

@@ -93,7 +93,7 @@
                 <div id="btn"></div>
                 <button type="button" class="toggle-btn" >Your price for this rent is:</button>
             </div>
-            <form  method="post" th:object="${rent}" id="login" class="input-group">
+            <form   method="post" th:object="${rent}" id="login" class="input-group">
                 <span th:text="*{idVehicle}">2</span>  <a>idVehicle</a><br>
                 <span th:text="*{idUser}">2</span>  <a>idUser</a><br>
                 <span th:text="${result2}"></span>  <a>PLN</a>

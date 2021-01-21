@@ -8,7 +8,7 @@
     <meta name="description" content="Wypozyczalnia pojazdow elektrycznych" />
     <meta name="keywords" content="hulajnogi, samochody, wypozyczalnia, deskorolki " />
 
-    <link href="style/styleAdd.css" rel="stylesheet" type="text/css" />
+    <link href="style/styleAll.css" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href="css/fontello.css" rel="stylesheet" type="text/css" />
 </head>
@@ -93,8 +93,22 @@
                 <div id="btn"></div>
                 <button type="button" class="toggle-btn" >Your distance to vehicle</button>
             </div>
-            <form   th:object="${distance}" id="login" class="input-group">
-                <span th:text="${result}"></span><a>km</a><br>
+            <table class="content-table">
+                <thead>
+                <tr>
+                    <th>result</th>
+                </tr>
+                </thead>
+                <tbody>
+                <div th:each="distance: ${distance}">
+                    <tr class="active-row">
+                        <td><div th:text="'result: '+${result}"></div>km</td>
+                    </tr>
+                </div>
+                </tbody>
+            </table>
+            <form   id="login" class="input-group">
+
                 <button href="/distance" type="submit" class="submit-btn">Check again</button>
             </form>
 
