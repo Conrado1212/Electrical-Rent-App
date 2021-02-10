@@ -89,7 +89,7 @@
                     <li><a href="/removeUser">Remove User</a> </li>
                 </ul>
             </li>
-            <li><a href="/user">Profil</a>
+            <li><a href="/userApp">Profil</a>
 
             </li>
             <li><a href="/login">Log out</a>
@@ -100,9 +100,9 @@
         <div class="form-box">
             <div class="button-box">
                 <div id="btn"></div>
-                <button type="button" class="toggle-btn" >Get user   from database</button>
+                <button type="button" class="toggle-btn" >Get userApp   from database</button>
             </div>
-            <form action="/getUser"  th:object="${user}"method="post" id="login" class="input-group">
+            <form action="/getUser"  th:object="${userApp}"method="post" id="login" class="input-group">
                 <input type="text" class="input-field" placeholder="idUser" name="idUser" th:field="*{idUser}" th:errorClass="error"required>
                 <span th:if="${#fields.hasErrors('idUser')}" th:errors="*{idUser}">Incorrect data</span>
 

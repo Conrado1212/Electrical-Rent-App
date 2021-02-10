@@ -23,7 +23,7 @@ public class GroupVehicleController {
     @RequestMapping(value ="/price",method = RequestMethod.GET)
     public String allPrice(Model model){
         model.addAttribute("price",this.groupVehicleDAO.getPriceVehicle());
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         return "price";

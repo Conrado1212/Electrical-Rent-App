@@ -1,29 +1,29 @@
 package pl.edu.wszib.dao.impl;
 
 import pl.edu.wszib.dao.IUserDAO;
-import pl.edu.wszib.model.User;
+import pl.edu.wszib.model.UserApp;
 import pl.edu.wszib.model.Vehicle;
 
 import java.util.List;
 
 public class UserDAOImplStub implements IUserDAO {
     @Override
-    public void addUser(User user) {
+    public void addUser(UserApp userApp) {
 
     }
 
     @Override
-    public User getUserByLogin(String username) {
+    public UserApp getUserByLogin(String username) {
         return null;
     }
 
     @Override
-    public User getUserById(int idUser) {
+    public UserApp getUserById(int idUser) {
         return null;
     }
 
     @Override
-    public List<User> getAllUser() {
+    public List<UserApp> getAllUser() {
         return null;
     }
 
@@ -33,17 +33,17 @@ public class UserDAOImplStub implements IUserDAO {
     }
 
     @Override
-    public User getUpdate(int idUser, User user) {
+    public UserApp getUpdate(int idUser, UserApp userApp) {
         return null;
     }
 
     @Override
-    public void getUpdateUser(int idUser, User user) {
+    public void getUpdateUser(int idUser, UserApp userApp) {
 
     }
 
     @Override
-    public void updateUser(int idUser, User user) {
+    public void updateUser(int idUser, UserApp userApp) {
 
     }
 }

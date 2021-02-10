@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>user</title>
+    <title>userApp</title>
 </head>
 <body>
 
@@ -89,7 +89,7 @@
                     <li><a href="/removeUser">Remove User</a> </li>
                 </ul>
             </li>
-            <li><a href="/user">Profil</a>
+            <li><a href="/userApp">Profil</a>
 
             </li>
             <li><a href="/login">Log out</a>
@@ -102,7 +102,7 @@
                 <div id="btn"></div>
                 <button type="button" class="toggle-btn" >Get your profil from database</button>
             </div>
-            <form action="/user"  th:object="${user}" method="post" id="login" class="input-group">
+            <form action="/userApp"  th:object="${userApp}" method="post" id="login" class="input-group">
                 <input type="text" class="input-field" placeholder="username" name="username" th:field="*{username}" th:errorClass="error"required>
                 <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Incorrect data</span>
 

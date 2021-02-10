@@ -6,9 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 import pl.edu.wszib.SessionObject;
-import pl.edu.wszib.model.User;
+import pl.edu.wszib.model.UserApp;
 import pl.edu.wszib.service.IAuthenticationService;
 
 import javax.annotation.Resource;
@@ -50,34 +49,34 @@ public class LoginController {
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String showLoginForm(Model model){
-        model.addAttribute("userModel",new User());
+        model.addAttribute("userModel",new UserApp());
         model.addAttribute("errorMessage","");
         return "login";
     }
 
     @RequestMapping(value = "/authenticate",method = RequestMethod.POST)
-    public  String authenticateUser(@ModelAttribute("userModel")User user,Model model){
-        boolean authResult = this.authenticationService.authenticationUser(user);
+    public  String authenticateUser(@ModelAttribute("userModel") UserApp userApp, Model model){
+        boolean authResult = this.authenticationService.authenticationUser(userApp);
         if(authResult){
             System.out.println("logged  !!");
-            this.sessionObject.setUser(user);
-            System.out.println(user);
+            this.sessionObject.setUserApp(userApp);
+            System.out.println(userApp);
             return "rentAppPage";
         }else{
             model.addAttribute("errorMessage","error data!!!");
-            model.addAttribute("userModel",new User());
+            model.addAttribute("userModel",new UserApp());
             return "login";
         }
     }
 
     @RequestMapping(value = "/rentAppPage", method = RequestMethod.GET)
     public String page(Model model) {
-        if(this.sessionObject.getUser() == null) {
+        if(this.sessionObject.getUserApp() == null) {
             return "redirect:/login";
         }
 
-        model.addAttribute("username", this.sessionObject.getUser().getUsername());
-        System.out.println(this.sessionObject.getUser().getUsername());
+        model.addAttribute("username", this.sessionObject.getUserApp().getUsername());
+        System.out.println(this.sessionObject.getUserApp().getUsername());
         return "rentAppPage";
     }
 
@@ -103,7 +102,7 @@ public class LoginController {
 
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public String logout(){
-        this.sessionObject.setUser(null);
+        this.sessionObject.setUserApp(null);
         return "redirect:login";
     }
 

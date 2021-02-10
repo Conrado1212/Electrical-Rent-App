@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.edu.wszib.dao.IUserDAO;
-import pl.edu.wszib.model.User;
+import pl.edu.wszib.model.UserApp;
 import pl.edu.wszib.model.Vehicle;
 
 
@@ -25,14 +25,14 @@ public class UserDAOImpl implements IUserDAO {
 
 
     @Override
-    public void addUser(User user){
+    public void addUser(UserApp userApp){
         Session session = null;
         Transaction tx = null;
 
         try{
             session = this.sessionFactory.openSession();
             tx = session.beginTransaction();
-            session.save(user);
+            session.save(userApp);
             tx.commit();
         }catch (HibernateException e){
             if(tx != null)tx.rollback();
@@ -42,36 +42,36 @@ public class UserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public User getUserByLogin(String username) {
+    public UserApp getUserByLogin(String username) {
         Session  session = this.sessionFactory.openSession();
-        User user =
-                (User) session.createQuery("FROM pl.edu.wszib.model.User WHERE username = :username" )
+        UserApp userApp =
+                (UserApp) session.createQuery("FROM pl.edu.wszib.model.UserApp WHERE username = :username" )
                         .setParameter("username", username)
                         .uniqueResult();
         session.close();
-        System.out.println(user);
-        return user;
+        System.out.println(userApp);
+        return userApp;
 
     }
 
     @Override
-    public User getUserById(int idUser) {
+    public UserApp getUserById(int idUser) {
         Session  session = this.sessionFactory.openSession();
-        User user =
-                (User) session.createQuery("FROM pl.edu.wszib.model.User WHERE idUser = " + idUser ).uniqueResult();
+        UserApp userApp =
+                (UserApp) session.createQuery("FROM pl.edu.wszib.model.UserApp WHERE idUser = " + idUser ).uniqueResult();
         session.close();
-        System.out.println(user);
-        return user;
+        System.out.println(userApp);
+        return userApp;
 
     }
 
 
     @Override
-    public List<User> getAllUser() {
+    public List<UserApp> getAllUser() {
         Session  session = this.sessionFactory.openSession();
-        List <User>  users = session.createQuery("FROM pl.edu.wszib.model.User").list();
+        List <UserApp> userApps = session.createQuery("FROM pl.edu.wszib.model.UserApp").list();
         session.close();
-        return users;
+        return userApps;
     }
 
     @Override
@@ -82,9 +82,9 @@ public class UserDAOImpl implements IUserDAO {
         try{
             session = this.sessionFactory.openSession();
             tx = session.beginTransaction();
-            User user =
-                    (User) session.get(User.class, idUser);
-            session.delete(user);
+            UserApp userApp =
+                    (UserApp) session.get(UserApp.class, idUser);
+            session.delete(userApp);
             tx.commit();
 
         }catch (HibernateException e){
@@ -96,33 +96,33 @@ public class UserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public User getUpdate(int idUser, User user){
+    public UserApp getUpdate(int idUser, UserApp userApp){
         Session session = null;
         Transaction tx = null;
         try{
             session = this.sessionFactory.openSession();
             tx = session.beginTransaction();
-            session.get(User.class,idUser);
+            session.get(UserApp.class,idUser);
 
-            session.update(user);
+            session.update(userApp);
             tx.commit();
         }catch (HibernateException e){
             if(tx != null) tx.rollback();
         }finally {
             session.close();
         }
-        return user;
+        return userApp;
     }
 
     @Override
-    public  void getUpdateUser(int idUser, User user) {
+    public  void getUpdateUser(int idUser, UserApp userApp) {
         Session session = null;
         Transaction tx = null;
         try{
             session = this.sessionFactory.openSession();
             tx = session.beginTransaction();
-            session.get(User.class,idUser);
-            session.saveOrUpdate(user);
+            session.get(UserApp.class,idUser);
+            session.saveOrUpdate(userApp);
             tx.commit();
         }catch(HibernateException e){
             if(tx != null) tx.rollback();
@@ -132,45 +132,45 @@ public class UserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public void updateUser(int idUser, User user) {
+    public void updateUser(int idUser, UserApp userApp) {
         Session session = null;
         Transaction tx = null;
-        User user1;
+        UserApp userApp1;
         try{
             session = this.sessionFactory.openSession();
             tx = session.beginTransaction();
-            user1 = (User)session.load(User.class,idUser);
+            userApp1 = (UserApp)session.load(UserApp.class,idUser);
 
-            if(!(user.getUsername().equals(""))){
-                user1.setUsername(user.getUsername());
+            if(!(userApp.getUsername().equals(""))){
+                userApp1.setUsername(userApp.getUsername());
             }
-            if(!(user.getPassword().equals(""))){
-                user1.setPassword(user.getPassword());
+            if(!(userApp.getPassword().equals(""))){
+                userApp1.setPassword(userApp.getPassword());
             }
-            if(!(user.getName().equals(""))){
-                user1.setName(user.getName());
+            if(!(userApp.getName().equals(""))){
+                userApp1.setName(userApp.getName());
             }
-            if(!(user.getSurname().equals(""))){
-                user1.setSurname(user.getSurname());
+            if(!(userApp.getSurname().equals(""))){
+                userApp1.setSurname(userApp.getSurname());
             }
-            if(!(user.getEmail().equals(""))){
-                user1.setEmail(user.getEmail());
+            if(!(userApp.getEmail().equals(""))){
+                userApp1.setEmail(userApp.getEmail());
             }
 
 
-            if(!(user.getLatitude()==0)){
-                user1.setLatitude(user.getLatitude());
+            if(!(userApp.getLatitude()==0)){
+                userApp1.setLatitude(userApp.getLatitude());
             }
-            if(!(user.getLongitude()==0)){
-                user1.setLongitude(user.getLongitude());
+            if(!(userApp.getLongitude()==0)){
+                userApp1.setLongitude(userApp.getLongitude());
             }
-            if(!(user.getRole().equals(""))){
-                user1.setRole(user.getRole());
+            if(!(userApp.getRole().equals(""))){
+                userApp1.setRole(userApp.getRole());
             }
-            if(!(user.getLocationName().equals(""))){
-                user1.setLocationName(user.getLocationName());
+            if(!(userApp.getLocationName().equals(""))){
+                userApp1.setLocationName(userApp.getLocationName());
             }
-            session.update(user);
+            session.update(userApp);
             tx.commit();
         }catch (HibernateException e){
             if(tx != null) tx.rollback();

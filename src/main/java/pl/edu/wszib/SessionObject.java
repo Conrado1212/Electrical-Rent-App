@@ -1,14 +1,14 @@
 package pl.edu.wszib;
 
-import pl.edu.wszib.model.User;
+import pl.edu.wszib.model.UserApp;
 
 public class SessionObject {
-    private User user = null;
+    private UserApp userApp = null;
 
-    public User getUser(){
-        return user;
+    public UserApp getUserApp(){
+        return userApp;
     }
-    public void setUser(User user){
-        this.user = user;
+    public void setUserApp(UserApp userApp){
+        this.userApp = userApp;
     }
 }

@@ -80,7 +80,7 @@
                     <li><a href="/removeUser">Remove User</a> </li>
                 </ul>
             </li>
-            <li><a href="/user">Profil</a>
+            <li><a href="/userApp">Profil</a>
 
             </li>
 
@@ -112,7 +112,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <div th:each="user: ${user}">
+                <div th:each="userApp: ${userApp}">
                     <tr class="active-row">
                         <td><div th:text="'idUser: '+${result.idUser}"></div></td>
                         <td><div th:text="'username: '+${result.username}"></div></td>

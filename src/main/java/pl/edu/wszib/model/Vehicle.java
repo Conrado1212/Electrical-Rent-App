@@ -3,7 +3,7 @@ package pl.edu.wszib.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "vehicle")
+@Table(schema="dbo",name = "Vehicle")
 public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

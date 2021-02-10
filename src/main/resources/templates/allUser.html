@@ -80,7 +80,7 @@
                     <li><a href="/removeUser">Remove User</a> </li>
                 </ul>
             </li>
-            <li><a href="/user">Profil</a>
+            <li><a href="/userApp">Profil</a>
 
             </li>
             <li><a href="/login">Log out</a>
@@ -91,7 +91,7 @@
         <div class="form-box">
             <div class="button-box">
                 <div id="btn"></div>
-                <button type="button" class="toggle-btn" >All users </button>
+                <button type="button" class="toggle-btn" >All userApps </button>
             </div>
 
             <table class="content-table">
@@ -111,18 +111,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                <div th:each="user: ${allUser}">
+                <div th:each="userApp: ${allUser}">
                     <tr class="active-row">
-                        <td><div th:text="'idUser: '+${user.idUser}"></div></td>
-                        <td><div th:text="'username: '+${user.username}"></div></td>
-                        <td><div th:text="'password: '+${user.password}"></div></td>
-                        <td><div th:text="'name: '+${user.name}"></div></td>
-                        <td><div th:text="'surname: '+${user.surname}"></div></td>
-                        <td><div th:text="'email: '+${user.email}"></div></td>
-                        <td><div th:text="'latitude: '+${user.latitude}"></div></td>
-                        <td><div th:text="'longitude: '+${user.longitude}"></div></td>
-                        <td><div th:text="'role: '+${user.role}"></div></td>
-                        <td><div th:text="'locationName: '+${user.locationName}"></div></td>
+                        <td><div th:text="'idUser: '+${userApp.idUser}"></div></td>
+                        <td><div th:text="'username: '+${userApp.username}"></div></td>
+                        <td><div th:text="'password: '+${userApp.password}"></div></td>
+                        <td><div th:text="'name: '+${userApp.name}"></div></td>
+                        <td><div th:text="'surname: '+${userApp.surname}"></div></td>
+                        <td><div th:text="'email: '+${userApp.email}"></div></td>
+                        <td><div th:text="'latitude: '+${userApp.latitude}"></div></td>
+                        <td><div th:text="'longitude: '+${userApp.longitude}"></div></td>
+                        <td><div th:text="'role: '+${userApp.role}"></div></td>
+                        <td><div th:text="'locationName: '+${userApp.locationName}"></div></td>
 
                     </tr>
                 </div>

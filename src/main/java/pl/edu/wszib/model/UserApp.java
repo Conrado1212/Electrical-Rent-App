@@ -11,8 +11,8 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Entity
-@Table(name = "user")
-public class User implements UserDetails  {
+@Table(schema="dbo",name = "UserApp")
+public class UserApp implements UserDetails  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUser;
@@ -28,11 +28,11 @@ public class User implements UserDetails  {
     private String locationName;
 
 
-    public User(){
+    public UserApp(){
 
     }
 
-    public User(String username, String password, String name, String surname, String email, double latitude, double longitude, String role, String locationName) {
+    public UserApp(String username, String password, String name, String surname, String email, double latitude, double longitude, String role, String locationName) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -153,7 +153,7 @@ public class User implements UserDetails  {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserApp{" +
                 "idUser=" + idUser +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

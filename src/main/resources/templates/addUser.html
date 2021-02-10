@@ -79,7 +79,7 @@
                     <li><a href="/removeUser">Remove User</a> </li>
                 </ul>
             </li>
-            <li><a href="/user">Profil</a>
+            <li><a href="/userApp">Profil</a>
 
             </li>
             <li><a href="/login">Log out</a>
@@ -90,7 +90,7 @@
         <div class="form-box">
             <div class="button-box">
                 <div id="btn"></div>
-                <button type="button" class="toggle-btn" >Add user to database</button>
+                <button type="button" class="toggle-btn" >Add userApp to database</button>
             </div>
             <form method="post" id="login" class="input-group">
                 <input type="text" class="input-field" placeholder="username" name="username" th:field="*{addUserKey.username}" required>
@@ -100,8 +100,8 @@
                 <input type="text" class="input-field" placeholder="email" name="email" th:field="*{addUserKey.email}"required>
                 <input type="text" class="input-field" placeholder="latitude" name="latitude" th:field="*{addUserKey.latitude}"required>
                 <input type="text" class="input-field" placeholder="longitude" name="longitude"th:field="*{addUserKey.longitude}" required>
-                <input type="radio" id="user"  name="role" value="ROLE_USER" th:checked th:field="*{addUserKey.role}"required>
-                <label for="user">User</label><br>
+                <input type="radio" id="userApp"  name="role" value="ROLE_USER" th:checked th:field="*{addUserKey.role}"required>
+                <label for="userApp">User</label><br>
                 <input type="radio" id="admin"  name="role" value="ROLE_ADMINISTRATOR" th:checked th:field="*{addUserKey.role}"required>
                 <label for="admin">Admin</label><br>
                 <input type="radio" id="employee"  name="role" value="ROLE_EMPLOYEE" th:checked th:field="*{addUserKey.role}"required>

@@ -23,7 +23,7 @@ public class VehiclesController {
     @RequestMapping(value ="/allCar",method = RequestMethod.GET)
     public String AllCars(Model model){
         model.addAttribute("allCar",vehicleDAO.getAllCars());
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         return "allCar";
@@ -32,7 +32,7 @@ public class VehiclesController {
     @RequestMapping(value = "/allMotorBike",method = RequestMethod.GET)
     public String allMotorBike(Model model){
         model.addAttribute("allMotorBike",vehicleDAO.getAllMotorBike());
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         return"allMotorBike";
@@ -42,7 +42,7 @@ public class VehiclesController {
     @RequestMapping(value = "/allBike",method = RequestMethod.GET)
     public String allBike(Model model){
         model.addAttribute("allBike",vehicleDAO.getAllBike());
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         return "allBike";
@@ -51,7 +51,7 @@ public class VehiclesController {
     @RequestMapping(value = "/allScooter",method = RequestMethod.GET)
     public String allScooter(Model model){
         model.addAttribute("allScooter",vehicleDAO.getAllScooter());
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         return "allScooter";

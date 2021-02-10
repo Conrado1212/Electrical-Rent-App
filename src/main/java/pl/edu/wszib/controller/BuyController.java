@@ -46,7 +46,7 @@ public class BuyController {
 
     @RequestMapping("/buy")
     public String vehicle(Model model, Vehicle vehicle, BindingResult bindingResult){
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         if(bindingResult.hasErrors()) {
@@ -60,7 +60,7 @@ public class BuyController {
 
     @GetMapping("/buy")
     public String VehicleForm(Vehicle vehicle) {
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         return "buy";
@@ -75,7 +75,7 @@ public class BuyController {
 
     @RequestMapping(value = "/buy2",method = RequestMethod.POST)
     public String addBuyVehicleForm(@ModelAttribute("getBuyKey") Buy buy){
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         buyDAO.addBuy(buy);
@@ -89,7 +89,7 @@ public class BuyController {
 
     @RequestMapping(value = "/resultBuy",method = RequestMethod.POST)
     public String removeVehicleForm(@ModelAttribute("BuyKey") Vehicle vehicle){
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         vehicleDAO.removeVehicleId(vehicle.getIdVehicle());
@@ -98,7 +98,7 @@ public class BuyController {
 
     @RequestMapping(value = "/thanks",method = RequestMethod.GET)
     public String indexGetVehicle(){
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         return"thanks";

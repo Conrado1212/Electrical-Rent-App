@@ -79,7 +79,7 @@
                     <li><a href="/removeUser">Remove Customer</a> </li>
                 </ul>
             </li>
-            <li><a href="/user">Profil</a>
+            <li><a href="/userApp">Profil</a>
 
             </li>
             <li><a href="/login">Log out</a>
@@ -96,7 +96,7 @@
                 <input type="text" class="input-field" placeholder="idVehicle" name="idVehicle" th:field="*{idVehicle}" th:errorClass="error"required>
                 <span th:if="${#fields.hasErrors('idVehicle')}" th:errors="*{idVehicle}">Incorrect data</span>
 
-                <button type="submit" class="submit-btn">Get Vehicle</button>
+                <button type="submit" class="submit-btn">Buy Vehicle</button>
             </form>
         </div>
     </div>

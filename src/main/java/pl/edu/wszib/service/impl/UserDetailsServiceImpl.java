@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pl.edu.wszib.dao.IUserDAO;
-import pl.edu.wszib.model.User;
+import pl.edu.wszib.model.UserApp;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -20,10 +20,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user  = userDAO.getUserByLogin(username);
-        if(user == null){
+        UserApp userApp = userDAO.getUserByLogin(username);
+        if(userApp == null){
             throw  new UsernameNotFoundException("User dont exist");
         }
-        return user;
+        return userApp;
     }
 }

@@ -7,7 +7,7 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
 
 @Entity
-@Table(name = "buy")
+@Table(schema="dbo",name = "Buy")
 public class Buy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

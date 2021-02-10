@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Result get  user</title>
+    <title>Result get  userApp</title>
 
     <meta name="description" content="Wypozyczalnia pojazdow elektrycznych" />
     <meta name="keywords" content="hulajnogi, samochody, wypozyczalnia, deskorolki " />
@@ -80,7 +80,7 @@
                     <li><a href="/removeUser">Remove User</a> </li>
                 </ul>
             </li>
-            <li><a href="/user">Profil</a>
+            <li><a href="/userApp">Profil</a>
 
             </li>
 
@@ -112,7 +112,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <div th:each="user: ${user}">
+                <div th:each="userApp: ${userApp}">
                     <tr class="active-row">
                         <td><div th:text="'idUser: '+${result.idUser}"></div></td>
                         <td><div th:text="'username: '+${result.username}"></div></td>

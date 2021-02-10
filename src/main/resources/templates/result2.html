@@ -8,7 +8,7 @@
     <meta name="description" content="Wypozyczalnia pojazdow elektrycznych" />
     <meta name="keywords" content="hulajnogi, samochody, wypozyczalnia, deskorolki " />
 
-    <link href="style/styleAdd.css" rel="stylesheet" type="text/css" />
+    <link href="style/styleAll.css" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href="css/fontello.css" rel="stylesheet" type="text/css" />
 </head>
@@ -80,7 +80,7 @@
                     <li><a href="/removeUser">Remove User</a> </li>
                 </ul>
             </li>
-            <li><a href="/user">Profil</a>
+            <li><a href="/userApp">Profil</a>
 
             </li>
             <li><a href="/login">Log out</a>
@@ -93,13 +93,32 @@
                 <div id="btn"></div>
                 <button type="button" class="toggle-btn" >Your price for this rent is:</button>
             </div>
+            <table class="content-table">
+                <thead>
+                <tr>
+                    <th>idVehicle</th>
+                    <th>idUser</th>
+                    <th>result</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <div th:object="${rent}">
+                    <tr class="active-row">
+                        <td><div th:text="*{idVehicle}"></div></td>
+                        <td><div th:text="*{idUser}"></div></td>
+                        <td><div th:text="${result2}"></div>PLN</td>
+
+                    </tr>
+                </div>
+                </tbody>
+            </table>
             <form   method="post" th:object="${rent}" id="login" class="input-group">
-                <span th:text="*{idVehicle}">2</span>  <a>idVehicle</a><br>
-                <span th:text="*{idUser}">2</span>  <a>idUser</a><br>
-                <span th:text="${result2}"></span>  <a>PLN</a>
+
                 <button href="/rent" type="submit" class="submit-btn">Check again</button><br>
                 <button href="/rent2" type="submit" class="submit-btn">Go to validation and rent</button>
             </form>
+
 
         </div>
     </div>

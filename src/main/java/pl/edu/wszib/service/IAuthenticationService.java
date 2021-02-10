@@ -1,7 +1,7 @@
 package pl.edu.wszib.service;
 
-import pl.edu.wszib.model.User;
+import pl.edu.wszib.model.UserApp;
 
 public interface IAuthenticationService {
-    boolean authenticationUser(User user);
+    boolean authenticationUser(UserApp userApp);
 }

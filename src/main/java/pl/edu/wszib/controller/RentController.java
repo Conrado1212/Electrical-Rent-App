@@ -23,7 +23,7 @@ public class RentController {
 
     @RequestMapping(value = "/rent",method = RequestMethod.POST)
     public String rent(Model model, Rent rent, BindingResult bindingResult){
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         if(bindingResult.hasErrors()) {

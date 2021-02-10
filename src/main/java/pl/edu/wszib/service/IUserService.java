@@ -1,15 +1,15 @@
 package pl.edu.wszib.service;
 
-import pl.edu.wszib.model.User;
+import pl.edu.wszib.model.UserApp;
 
 import java.util.List;
 
 public interface IUserService {
-    void registerUser(User user);
+    void registerUser(UserApp userApp);
 
-    User getUserByLogin(String username);
+    UserApp getUserByLogin(String username);
 
-    User getUserById(int idUser);
+    UserApp getUserById(int idUser);
 
-    List<User> getAllUser();
+    List<UserApp> getAllUser();
 }

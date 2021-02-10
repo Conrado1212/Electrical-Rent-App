@@ -23,7 +23,7 @@ public class DistanceController {
 
     @RequestMapping("/distance")
     public String calculate(Model model, Distance distance, BindingResult bindingResult){
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         if(bindingResult.hasErrors()) {
@@ -37,7 +37,7 @@ public class DistanceController {
 
     @GetMapping("/distance")
     public String distanceForm(Distance distance) {
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         return "distance";

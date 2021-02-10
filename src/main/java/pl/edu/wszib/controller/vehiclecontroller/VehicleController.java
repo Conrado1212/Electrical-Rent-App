@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import pl.edu.wszib.SessionObject;
 import pl.edu.wszib.dao.impl.VehicleDAOImpl;
-import pl.edu.wszib.model.Distance;
 import pl.edu.wszib.model.Vehicle;
 
 import javax.annotation.Resource;
@@ -53,7 +52,7 @@ public class VehicleController {
 
     @RequestMapping(value = "/addVehicle",method = RequestMethod.POST)
     public String addVehicleForm(@ModelAttribute("addVehicleKey") Vehicle vehicle){
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         vehicleDAO.addVehicle(vehicle);
@@ -75,7 +74,7 @@ public class VehicleController {
 
     @RequestMapping("/getVehicle")
     public String vehicle(Model model, Vehicle vehicle, BindingResult bindingResult){
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         if(bindingResult.hasErrors()) {
@@ -89,7 +88,7 @@ public class VehicleController {
 
     @GetMapping("/getVehicle")
     public String vehicleForm(Vehicle vehicle) {
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         return "getVehicle";
@@ -110,7 +109,7 @@ public class VehicleController {
 
     @RequestMapping(value = "/removeVehicle",method = RequestMethod.POST)
     public String removeVehicleForm(@ModelAttribute("removeVehicleIdKey") Vehicle vehicle){
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         vehicleDAO.removeVehicleId(vehicle.getIdVehicle());
@@ -124,7 +123,7 @@ public class VehicleController {
 
     @RequestMapping(value = "/updateVehicle",method = RequestMethod.POST)
     public String updateVehicleForm(@ModelAttribute("updateVehicleKey") Vehicle vehicle){
-        if(this.sessionObject.getUser() == null){
+        if(this.sessionObject.getUserApp() == null){
             return "redirect:login";
         }
         vehicleDAO.getUpdate(vehicle.getIdVehicle(),vehicle);
